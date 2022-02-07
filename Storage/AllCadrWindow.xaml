@@ -1,0 +1,32 @@
+﻿<Window x:Class="Storage.AllCadrWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Storage"
+        xmlns:util="clr-namespace:Wpf.Util"
+        mc:Ignorable="d"
+        Title="Список ЗИП" Height="386" Width="568.333">
+    <Grid KeyUp="Grid_KeyUp">
+        <Grid Margin="10,0,10.333,16.667" Height="55" VerticalAlignment="Bottom">
+            <Button x:Name="buttonExcel" Content="Экспорт в Excel" Click="buttonExcel_Click" Height="29" VerticalAlignment="Top"/>
+            <ProgressBar x:Name="progressBar" Maximum="100" Minimum="0" Margin="0,34,0,0" Height="16" VerticalAlignment="Top" Value="-1"/>
+            <TextBlock Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0: 0} %}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="245,34,251,5" Width="45" RenderTransformOrigin="0.742,0.364" Height="16" />
+        </Grid>
+        <Grid Margin="10,5,10.333,76.667">
+            <ListView x:Name="AllCadrListView" util:GridViewSort.AutoSort="True" Margin="0,27,0,0" Foreground="Black" >
+                <ListView.View  >
+                    <GridView>
+                        <GridViewColumn Header="Наименование" DisplayMemberBinding="{Binding storageName}" util:GridViewSort.PropertyName="storageName"/>
+                        <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding storageType}" util:GridViewSort.PropertyName="storageType"/>
+                        <GridViewColumn Header="Помещение"  DisplayMemberBinding="{Binding storageRoom}" util:GridViewSort.PropertyName="storageRoom"/>
+                        <GridViewColumn Header="Состояние"  DisplayMemberBinding="{Binding storageSost}" util:GridViewSort.PropertyName="storageSost"/>
+                        <GridViewColumn Header="Количество"  DisplayMemberBinding="{Binding storageCount}" util:GridViewSort.PropertyName="storageCount"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox x:Name="findFirstBox" VerticalAlignment="Top" Height="24" Margin="0,0,137,0"/>
+            <Button x:Name="buttonFind" Content="Поиск" VerticalAlignment="Top" Height="24" Click="buttonFind_Click" HorizontalAlignment="Right" Width="132"/>
+        </Grid>
+    </Grid>
+</Window>

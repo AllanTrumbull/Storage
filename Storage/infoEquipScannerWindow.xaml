@@ -1,0 +1,130 @@
+﻿<Window x:Class="Storage.infoEquipScannerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Сканер: Информация" Height="536" Width="1482">
+    <Grid Margin="0,0,0,-10">
+        <Grid KeyUp="Grid_KeyUpDouble" >
+            <ListView x:Name="equipmentMovingListView" Margin="9,201,11,76" MouseLeftButtonUp="changeMouse" >
+                <ListView.View  >
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding equipmentID}" />
+                        <GridViewColumn Header="Дата"  DisplayMemberBinding="{Binding equipmentDate}" />
+                        <!--// 
+                    <GridViewColumn Header="Перемещение" DisplayMemberBinding="{Binding equipmentMoving}"/>  
+                    //-->
+                        <GridViewColumn Header="Перемещение">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap">
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold">ИЗ </Run>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold"></Run>
+                                    <Run FontSize="12" Foreground="Black" >пом.:</Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentRoomIZ}" />
+                                    <Run FontSize="12" Foreground="Black">шк./стел.:</Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentStellagIZ}"/>
+                                    <Run FontSize="12" Foreground="Black"  > пол./кр.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentPolkaIZ}"/>
+                                    <Run FontSize="12" Foreground="Black"  > сост.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentSostIZ}"/>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold"></Run>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold">  В  </Run>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold"></Run>
+                                    <Run FontSize="12" Foreground="Black" > пом.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentRoomV}" />
+                                    <Run FontSize="12" Foreground="Black"  > шк./стел.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentStellagV}"/>
+                                    <Run FontSize="12" Foreground="Black"  > пол./кр.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentPolkaV}"/>
+                                    <Run FontSize="12" Foreground="Black"  > сост.: </Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentSostV}"/>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold"></Run>
+                                    <Run FontSize="18" Foreground="Black" FontWeight="Bold">АВТОР:</Run>
+                                    <Run FontSize="14" Foreground="Black" FontWeight="Bold" TextDecorations="Underline" Text="{Binding equipmentIsp}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="label" Content="Название" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="nameEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="60,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="typeEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="165,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+            <ComboBox x:Name="roomEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="280,26,0,0" VerticalAlignment="Top" Width="122"/>
+            <Label x:Name="label2" Content="Тип" HorizontalAlignment="Left" Margin="165,0,0,0" VerticalAlignment="Top" Width="110"/>
+            <Label x:Name="label3" Content="Помещение" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Width="122"/>
+            <ComboBox x:Name="stellagEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="407,26,0,0" VerticalAlignment="Top" Width="113"/>
+            <Label x:Name="label4" Content="Стеллаж/Шкаф" HorizontalAlignment="Left" Margin="407,0,0,0" VerticalAlignment="Top" Width="113"/>
+            <TextBox x:Name="polkaEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="525,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+            <Label x:Name="label5" Content="Полка/Крейт" HorizontalAlignment="Left" Margin="525,0,0,0" VerticalAlignment="Top" Width="95"/>
+            <ComboBox x:Name="OborudEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="625,26,0,0" VerticalAlignment="Top" Width="145">
+                <TextBlock><Run Text="ПТК УСБ-Т 2"/></TextBlock>
+                <TextBlock><Run Text="ПТК УСБ-Т 3"/></TextBlock>
+                <TextBlock><Run Text="ПТК УСБ-Т 4"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ ТО РО 3"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ ТО РО 4"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ ГК 3"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ ГК 4"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ СВО"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ БВ 3"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ СУВ 3"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ СУВ 4"/></TextBlock>
+                <TextBlock><Run Text="ПТК СКУ КО 1"/></TextBlock>
+            </ComboBox>
+            <Label x:Name="label6" Content="Оборудование" HorizontalAlignment="Left" Margin="625,0,0,0" VerticalAlignment="Top" Width="145" Height="26"/>
+            <TextBox x:Name="SNEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="775,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+            <Label x:Name="label7" Content="Заводской/серийный номер" HorizontalAlignment="Left" Margin="775,0,0,0" VerticalAlignment="Top" Width="170" Height="26"/>
+            <TextBox x:Name="dataEquipmentBox" HorizontalAlignment="Left" Height="44" Margin="950,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+            <Label x:Name="label8" Content="Дата изготовления" HorizontalAlignment="Left" Margin="950,0,0,0" VerticalAlignment="Top" Width="115" Height="26"/>
+            <ComboBox x:Name="sostEquipmentComBox" HorizontalAlignment="Left" Margin="1070,26,0,0" Height="44" VerticalAlignment="Top" Width="88">
+                <TextBlock><Run Text="карантин"/></TextBlock>
+                <TextBlock><Run Text="исправен"/></TextBlock>
+                <TextBlock><Run Text="неисправен"/></TextBlock>
+                <TextBlock><Run Text="усл. исправен"/></TextBlock>
+                <TextBlock><Run Text="в ремонт"/></TextBlock>
+                <TextBlock><Run Text="списание"/></TextBlock>
+                <TextBlock><Run Text="неисправен"/></TextBlock>
+            </ComboBox>
+            <Label x:Name="label9" Content="Состояние" HorizontalAlignment="Left" Margin="1070,0,0,0" VerticalAlignment="Top" Width="88" Height="26"/>
+            <TextBox x:Name="movingEquipmentBox" HorizontalAlignment="Left" Height="26" Margin="10,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1290"/>
+            <Button x:Name="deleteButton" Content="Удалить из БД" Margin="10,0,10,46" Click="deleteButton_Click" Height="25" VerticalAlignment="Bottom"/>
+            <Button x:Name="addCarantinButton" Content="В карантин" Margin="9,135,11,0" Click="addCarantinButton_Click" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="label12" Content="Категория" HorizontalAlignment="Left" Margin="1163,0,0,0" VerticalAlignment="Top" Width="150" Height="26"/>
+            <Button x:Name="buttonMove" Content="Перещение" Margin="10,75,9,0" VerticalAlignment="Top" Height="25" Click="buttonMove_Click"/>
+            <Button x:Name="deleteCarantinButton"  Content="Удалить из карантина" Margin="9,135,9,0" Click="deleteCarantinButton_Click" Height="25" VerticalAlignment="Top" />
+            <Label x:Name="labelId" Content="" HorizontalAlignment="Left" Margin="9,26,0,0" VerticalAlignment="Top" Height="44" Width="46"/>
+            <Label x:Name="labelID" Content="ID" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="46"/>
+            <Button x:Name="buttonUpdate" Content="Обновить" Margin="9,105,9,0" Click="button1_Click" Height="25" VerticalAlignment="Top"/>
+            <ComboBox x:Name="categoryComboBox" Margin="1163,26,161,0" VerticalAlignment="Top" Height="44">
+                <TextBlock><Run Text="Модули"/></TextBlock>
+                <TextBlock><Run Text="Материнские платы"/></TextBlock>
+                <TextBlock><Run Text="БП"/></TextBlock>
+                <TextBlock><Run Text="Контроллеры"/></TextBlock>
+                <TextBlock><Run Text="Комплектующие ПК"/></TextBlock>
+                <TextBlock><Run Text="Сетевые платы"/></TextBlock>
+                <TextBlock><Run Text="Платы"/></TextBlock>
+                <TextBlock><Run Text="Конверторы"/></TextBlock>
+                <TextBlock><Run Text="Переферия"/></TextBlock>
+                <TextBlock><Run Text="Оборудование"/></TextBlock>
+                <TextBlock><Run Text="Реле"/></TextBlock>
+            </ComboBox>
+            <ComboBox x:Name="ispComboBox" Margin="0,26,9,0" VerticalAlignment="Top" Height="44" HorizontalAlignment="Right" Width="147">
+                <TextBlock><Run Text="Бедненко"/></TextBlock>
+                <TextBlock><Run Text="Власов"/></TextBlock>
+                <TextBlock><Run Text="Гладков"/></TextBlock>
+                <TextBlock><Run Text="Долгушин"/></TextBlock>
+                <TextBlock><Run Text="Дмитриев"/></TextBlock>
+                <TextBlock><Run Text="Куклина"/></TextBlock>
+                <TextBlock><Run Text="Прохорченко"/></TextBlock>
+                <TextBlock><Run Text="Сапрыкин"/></TextBlock>
+                <TextBlock><Run Text="Семенихин"/></TextBlock>
+                <TextBlock><Run Text="Фомин"/></TextBlock>
+                <TextBlock><Run Text="Ефимов"/></TextBlock>
+            </ComboBox>
+            <Label x:Name="label13" Content="Исполнитель" Margin="1318,0,9,0" VerticalAlignment="Top" Height="26"/>
+        </Grid>
+    </Grid>
+</Window>
